@@ -9,10 +9,11 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -29,28 +30,32 @@ public class CarController {
     }
 
     @Operation(summary = "Добавить автомобиль")
-    @PostMapping(Urls.AutoPark.Id.Car.FULL)
-    public ResponseEntity<CarDto> createCar(@PathVariable Long autoParkId,
-                                            @RequestBody CarCreateDto carCreateDto) {
-        return ResponseEntity.ok(carService.create(autoParkId, carCreateDto));
+    @PostMapping(Urls.Car.FULL)
+    public ResponseEntity<CarDto> createCar(@RequestBody CarCreateDto carCreateDto) {
+        return ResponseEntity.ok(carService.create(carCreateDto));
+    }
+
+    @Operation(summary = "Изменить характеристики автомобиля")
+    @PutMapping(Urls.Car.FULL)
+    public ResponseEntity<CarDto> updateCar(@RequestBody CarDto carDto) {
+        return ResponseEntity.ok(carService.update(carDto));
+    }
+
+    @Operation(summary = "Удалить автомобиль")
+    @DeleteMapping(Urls.Car.FULL)
+    public ResponseEntity<CarDto> delete(@RequestParam Long id) {
+        return ResponseEntity.ok(carService.delete(id));
     }
 
     @Operation(summary = "Найти все автомобили")
-    @GetMapping(Urls.AutoPark.Id.Car.FULL)
+    @GetMapping(Urls.Car.FULL)
     public ResponseEntity<List<CarDto>> findAll() {
         return ResponseEntity.ok(carService.findAll());
     }
 
-    @Operation(summary = "Удалить автомобиль")
-    @DeleteMapping(Urls.AutoPark.Id.Car.CarId.FULL)
-    public ResponseEntity<String> delete(@PathVariable Long autoParkId,
-                                         @PathVariable Long carId) {
-        carService.delete(carId);
-        return ResponseEntity.ok("Ok.");
-    }
-
-    @GetMapping
-    public ResponseEntity<CarDto> find() {
-        return null;
+    @Operation(summary = "Найти все автомобили по модели")
+    @GetMapping(Urls.Car.Search.FULL)
+    public ResponseEntity<List<CarDto>> findAllByModel(@RequestParam String model) {
+        return ResponseEntity.ok(carService.findAllByModel(model));
     }
 }

@@ -22,7 +22,7 @@ import javax.persistence.SequenceGenerator;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"autoPark", "driver"})
+@ToString
 public class Car {
 
     @Id
@@ -38,9 +38,11 @@ public class Car {
     private String model;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private AutoPark autoPark;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @ToString.Exclude
     private Driver driver;
 
     @Override
