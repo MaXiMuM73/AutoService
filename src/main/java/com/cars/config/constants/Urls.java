@@ -1,4 +1,4 @@
-package com.simbirsoft.cars.config.constants;
+package com.cars.config.constants;
 
 public interface Urls {
     String ROOT = "/api";

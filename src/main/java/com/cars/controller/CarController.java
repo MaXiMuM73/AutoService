@@ -1,9 +1,9 @@
-package com.simbirsoft.cars.controller;
+package com.cars.controller;
 
-import com.simbirsoft.cars.config.constants.Urls;
-import com.simbirsoft.cars.dto.CarCreateDto;
-import com.simbirsoft.cars.dto.CarDto;
-import com.simbirsoft.cars.service.CarService;
+import com.cars.config.constants.Urls;
+import com.cars.dto.CarCreateDto;
+import com.cars.dto.CarDto;
+import com.cars.service.CarService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.ResponseEntity;
@@ -31,13 +31,13 @@ public class CarController {
 
     @Operation(summary = "Добавить автомобиль")
     @PostMapping(Urls.Car.FULL)
-    public ResponseEntity<CarDto> createCar(@RequestBody CarCreateDto carCreateDto) {
+    public ResponseEntity<CarDto> create(@RequestBody CarCreateDto carCreateDto) {
         return ResponseEntity.ok(carService.create(carCreateDto));
     }
 
     @Operation(summary = "Изменить характеристики автомобиля")
     @PutMapping(Urls.Car.FULL)
-    public ResponseEntity<CarDto> updateCar(@RequestBody CarDto carDto) {
+    public ResponseEntity<CarDto> update(@RequestBody CarDto carDto) {
         return ResponseEntity.ok(carService.update(carDto));
     }
 

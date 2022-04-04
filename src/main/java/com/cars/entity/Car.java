@@ -1,4 +1,4 @@
-package com.simbirsoft.cars.entity;
+package com.cars.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

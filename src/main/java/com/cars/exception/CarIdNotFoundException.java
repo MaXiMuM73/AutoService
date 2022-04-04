@@ -1,6 +1,6 @@
-package com.simbirsoft.cars.exception;
+package com.cars.exception;
 
-public class CarIdNotFoundException extends AppException{
+public class CarIdNotFoundException extends ServiceException {
     public CarIdNotFoundException(Long id) {
         super("Car with id: " + id + " not found.");
     }

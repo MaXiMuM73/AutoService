@@ -1,8 +1,8 @@
-package com.simbirsoft.cars.service.mapper;
+package com.cars.service.mapper;
 
-import com.simbirsoft.cars.dto.CarCreateDto;
-import com.simbirsoft.cars.dto.CarDto;
-import com.simbirsoft.cars.entity.Car;
+import com.cars.dto.CarCreateDto;
+import com.cars.dto.CarDto;
+import com.cars.entity.Car;
 import org.springframework.stereotype.Component;
 
 @Component

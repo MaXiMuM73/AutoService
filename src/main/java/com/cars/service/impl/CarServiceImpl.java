@@ -1,16 +1,14 @@
-package com.simbirsoft.cars.service.impl;
+package com.cars.service.impl;
 
-import com.simbirsoft.cars.dto.CarCreateDto;
-import com.simbirsoft.cars.dto.CarDto;
-import com.simbirsoft.cars.entity.Car;
-import com.simbirsoft.cars.exception.CarIdNotFoundException;
-import com.simbirsoft.cars.repository.AutoParkRepository;
-import com.simbirsoft.cars.repository.CarRepository;
-import com.simbirsoft.cars.service.CarService;
-import com.simbirsoft.cars.service.mapper.CarMapper;
+import com.cars.dto.CarCreateDto;
+import com.cars.dto.CarDto;
+import com.cars.repository.CarRepository;
+import com.cars.service.mapper.CarMapper;
+import com.cars.entity.Car;
+import com.cars.exception.CarIdNotFoundException;
+import com.cars.service.CarService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +16,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-@Slf4j
+@Log4j2
 @RequiredArgsConstructor
 public class CarServiceImpl implements CarService {
 
@@ -41,8 +39,12 @@ public class CarServiceImpl implements CarService {
     @Override
     public CarDto update(CarDto carDto) {
         Car car = findById(carDto.getId());
+
         car.setManufacturer(carDto.getManufacturer());
         car.setModel(carDto.getModel());
+
+        log.info("Car updated {}", car);
+
         return carMapper.toDto(carRepository.save(car));
     }
 
@@ -50,7 +52,11 @@ public class CarServiceImpl implements CarService {
     @Override
     public CarDto delete(Long id) {
         Car car = findById(id);
+
         carRepository.delete(car);
+
+        log.info("Car deleted {}", car);
+
         return carMapper.toDto(car);
     }
 

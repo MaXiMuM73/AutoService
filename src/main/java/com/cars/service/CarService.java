@@ -1,8 +1,7 @@
-package com.simbirsoft.cars.service;
+package com.cars.service;
 
-import com.simbirsoft.cars.dto.CarCreateDto;
-import com.simbirsoft.cars.dto.CarDto;
-import org.springframework.http.ResponseEntity;
+import com.cars.dto.CarCreateDto;
+import com.cars.dto.CarDto;
 
 import java.util.List;
 

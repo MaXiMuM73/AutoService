@@ -1,6 +1,6 @@
-package com.simbirsoft.cars.repository;
+package com.cars.repository;
 
-import com.simbirsoft.cars.entity.Car;
+import com.cars.entity.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

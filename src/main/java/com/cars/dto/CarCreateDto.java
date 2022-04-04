@@ -1,10 +1,9 @@
-package com.simbirsoft.cars.dto;
+package com.cars.dto;
 
 import lombok.Data;
 
 @Data
-public class CarDto {
-    private Long id;
+public class CarCreateDto {
     private String manufacturer;
     private String model;
 }
