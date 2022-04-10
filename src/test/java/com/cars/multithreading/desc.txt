@@ -14,3 +14,13 @@ TERMINATED
 A thread that has exited is in this state.
 A thread can be in only one state at a given point in time.
 These states are virtual machine states which do not reflect any operating system thread states.
+
+WAITING
+public static final Thread.State WAITING
+Thread state for a waiting thread. A thread is in the waiting state due to calling one of the following methods:
+Object.wait with no timeout
+Thread.join with no timeout
+LockSupport.park
+A thread in the waiting state is waiting for another thread to perform a particular action.
+For example, a thread that has called Object.wait() on an object is waiting for another thread to call Object.notify()
+or Object.notifyAll() on that object. A thread that has called Thread.join() is waiting for a specified thread to terminate.
