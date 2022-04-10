@@ -4,6 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Thread.interrupt() - прерывание потока или
+ */
 @Slf4j
 public class ThreadInterrupt {
     public static void main(String[] args) throws InterruptedException {
