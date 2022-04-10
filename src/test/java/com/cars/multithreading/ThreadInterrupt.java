@@ -1,21 +1,11 @@
 package com.cars.multithreading;
 
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
-public class ThreadTest {
-    @Test
-    public void test1() throws InterruptedException {
-        Thread thread1 = new Thread(() -> {
-            log.info("Thread1 working");
-        });
-        thread1.start();
-        Thread.sleep(1000);
-    }
-
+public class ThreadInterrupt {
     public static void main(String[] args) throws InterruptedException {
         log.info("Start program");
         Runnable task = () -> {
