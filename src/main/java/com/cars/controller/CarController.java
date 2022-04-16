@@ -58,4 +58,18 @@ public class CarController {
     public ResponseEntity<List<CarDto>> findAllByModel(@RequestParam String model) {
         return ResponseEntity.ok(carService.findAllByModel(model));
     }
+
+    @Operation(summary = "Тестовый метод")
+    @GetMapping(Urls.Car.FULL + "/test")
+    public ResponseEntity<String> testMethod() {
+        carService.testMethod();
+        return ResponseEntity.ok("Ok");
+    }
+
+    @Operation(summary = "Тестовый метод с DTO")
+    @GetMapping(Urls.Car.FULL + "/testWithDto")
+    public ResponseEntity<List<CarDto>> testMethodWithDto() {
+        carService.refreshCache();
+        return ResponseEntity.ok(carService.testMethodWithDto());
+    }
 }
