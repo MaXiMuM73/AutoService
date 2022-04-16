@@ -2,13 +2,15 @@ package com.cars.service.impl;
 
 import com.cars.dto.CarCreateDto;
 import com.cars.dto.CarDto;
-import com.cars.repository.CarRepository;
-import com.cars.service.mapper.CarMapper;
 import com.cars.entity.Car;
 import com.cars.exception.CarIdNotFoundException;
+import com.cars.repository.CarRepository;
 import com.cars.service.CarService;
+import com.cars.service.mapper.CarMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -60,7 +62,7 @@ public class CarServiceImpl implements CarService {
         return carMapper.toDto(car);
     }
 
-    @Transactional(readOnly = true)
+    @Transactional
     @Override
     public List<CarDto> findAll() {
         return carRepository.findAll()
@@ -74,6 +76,37 @@ public class CarServiceImpl implements CarService {
     public List<CarDto> findAllByModel(String model) {
         return carRepository
                 .findAllByModel(model)
+                .stream()
+                .map(carMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Cacheable("cars")
+    @Override
+    public void testMethod() {
+        log.info("Test method");
+        List<Car> all = carRepository.findAll();
+        carRepository.saveAll(all);
+    }
+
+    @Cacheable("cars2")
+    @Override
+    public List<CarDto> testMethodWithDto() {
+        log.info("Test method with dto");
+        List<Car> all = carRepository.findAll();
+        refreshCache();
+        return all
+                .stream()
+                .map(carMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    @CachePut(value = "cars2")
+    public List<CarDto> refreshCache() {
+        log.info("Test method with dto");
+        List<Car> all = carRepository.findAll();
+        return all
                 .stream()
                 .map(carMapper::toDto)
                 .collect(Collectors.toList());

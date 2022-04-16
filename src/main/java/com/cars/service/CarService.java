@@ -2,6 +2,7 @@ package com.cars.service;
 
 import com.cars.dto.CarCreateDto;
 import com.cars.dto.CarDto;
+import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
@@ -16,4 +17,10 @@ public interface CarService {
     List<CarDto> findAll();
 
     List<CarDto> findAllByModel(String model);
+
+    void testMethod();
+
+    List<CarDto> testMethodWithDto();
+
+    List<CarDto> refreshCache();
 }
