@@ -112,7 +112,7 @@ public class CarServiceImpl implements CarService {
                 .collect(Collectors.toList());
     }
 
-    private Car findById(Long id) {
+    public Car findById(Long id) {
         return carRepository
                 .findById(id)
                 .orElseThrow(() -> new CarIdNotFoundException(id));
