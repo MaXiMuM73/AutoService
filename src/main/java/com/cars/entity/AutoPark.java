@@ -1,5 +1,7 @@
 package com.cars.entity;
 
+import lombok.ToString;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,6 +17,7 @@ import java.util.Set;
 
 @Entity
 @Table(name = "autopark")
+@ToString(exclude = "cars")
 public class AutoPark {
 
     @Id
