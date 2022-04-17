@@ -16,7 +16,7 @@ public interface AutoParkService {
 
     List<CarDto> addCar(Long autoParkId, Long carId);
 
-    void deleteCar(Long autoParkId, Long carId);
+    List<CarDto> deleteCar(Long autoParkId, Long carId);
 
     List<AutoParkDto> findAll();
 }

@@ -53,16 +53,17 @@ public class AutoParkController {
         return ResponseEntity.ok(autoParkService.findAll());
     }
 
+    @Operation(summary = "Добавить автомобиль в автопарк")
     @PostMapping(Urls.AutoPark.Id.Car.CarId.FULL)
     public ResponseEntity<List<CarDto>> addCar(@PathVariable Long autoParkId,
                                                @PathVariable Long carId) {
         return ResponseEntity.ok(autoParkService.addCar(autoParkId, carId));
     }
 
-    @DeleteMapping(Urls.AutoPark.Id.Car.CarId.FULL + "/test")
-    public ResponseEntity<String> deleteCar(@PathVariable Long autoParkId,
-                                            @PathVariable Long carId) {
-        autoParkService.deleteCar(autoParkId, carId);
-        return ResponseEntity.ok("Ok");
+    @Operation(summary = "Удалить автомобиль из автопарка")
+    @DeleteMapping(Urls.AutoPark.Id.Car.CarId.FULL)
+    public ResponseEntity<List<CarDto>> deleteCar(@PathVariable Long autoParkId,
+                                                  @PathVariable Long carId) {
+        return ResponseEntity.ok(autoParkService.deleteCar(autoParkId, carId));
     }
 }

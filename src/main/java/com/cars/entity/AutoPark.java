@@ -30,7 +30,7 @@ public class AutoPark {
     private String name;
 
     @OneToMany(mappedBy = "autoPark", fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL, orphanRemoval = true)
+            cascade = CascadeType.MERGE, orphanRemoval = true)
     private Set<Car> cars = new HashSet<>();
 
     public Long getId() {

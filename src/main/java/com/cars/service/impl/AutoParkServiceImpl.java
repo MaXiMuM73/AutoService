@@ -18,6 +18,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Log4j2
@@ -32,6 +33,7 @@ public class AutoParkServiceImpl implements AutoParkService {
     private final CarMapper carMapper;
 
     @Override
+    @Transactional
     public AutoParkDto create(AutoParkCreateDto autoParkCreateDto) {
         AutoPark autoPark = autoParkRepository
                 .save(autoParkMapper.toEntity(autoParkCreateDto));
@@ -42,6 +44,7 @@ public class AutoParkServiceImpl implements AutoParkService {
     }
 
     @Override
+    @Transactional
     public AutoParkDto update(AutoParkUpdateDto autoParkUpdateDto) {
         AutoPark autopark = findById(autoParkUpdateDto.getId());
         autopark.setName(autoParkUpdateDto.getName());
@@ -50,6 +53,7 @@ public class AutoParkServiceImpl implements AutoParkService {
     }
 
     @Override
+    @Transactional
     public AutoParkDto delete(Long id) {
         AutoPark autoPark = findById(id);
         autoParkRepository.delete(autoPark);
@@ -74,20 +78,29 @@ public class AutoParkServiceImpl implements AutoParkService {
     }
 
     @Override
+    @Transactional
+    public List<CarDto> deleteCar(Long autoParkId, Long carId) {
+        AutoPark autoPark = findById(autoParkId);
+        Car car = carService.findById(carId);
+        Set<Car> cars = autoPark.getCars();
+        if (cars.remove(car)) {
+            car.setAutoPark(null);
+        }
+
+        autoParkRepository.save(autoPark);
+
+        return cars
+                .stream()
+                .map(carMapper::toDto)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public List<AutoParkDto> findAll() {
         return autoParkRepository.findAll()
                 .stream()
                 .map(autoParkMapper::toDto)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public void deleteCar(Long autoParkId, Long carId) {
-        AutoPark autoPark = findById(autoParkId);
-        Car car = carService.findById(carId);
-        autoPark.getCars().remove(car);
-
-        autoParkRepository.save(autoPark);
     }
 
     private AutoPark findById(Long id) {
