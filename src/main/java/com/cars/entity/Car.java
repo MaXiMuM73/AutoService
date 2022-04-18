@@ -31,11 +31,13 @@ public class Car {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "manufacturer", columnDefinition = "varchar(500)", nullable = false)
+    @Column(name = "manufacturer", nullable = false)
     private String manufacturer;
 
-    @Column(name = "model", columnDefinition = "varchar(500)", nullable = false)
+    @Column(name = "model", nullable = false)
     private String model;
+
+    private String stateNumber;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @ToString.Exclude
