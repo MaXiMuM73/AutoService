@@ -41,9 +41,9 @@ public class FluxTest {
 
     private List<Car> getCars() {
         List<Car> cars = new ArrayList<>();
-        cars.add(new Car(1L, "Chevrolet", "Cruze", new AutoPark(), new Driver()));
-        cars.add(new Car(2L, "Toyota", "Corolla", new AutoPark(), new Driver()));
-        cars.add(new Car(3L, "Kia", "Cerato", new AutoPark(), new Driver()));
+//        cars.add(new Car(1L, "Chevrolet", "Cruze", new AutoPark(), new Driver()));
+//        cars.add(new Car(2L, "Toyota", "Corolla", new AutoPark(), new Driver()));
+//        cars.add(new Car(3L, "Kia", "Cerato", new AutoPark(), new Driver()));
         return cars;
     }
 

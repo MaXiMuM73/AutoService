@@ -171,4 +171,10 @@ public class CustomTests {
         log.info("Сумма а100 и b100 = {}", sum100);
         log.info("Сумма а100 и b100, деленная на 100 = {}", sum100 / 100);
     }
+
+    @Test
+    void varTest() {
+        var test = "test";
+        log.info(test);
+    }
 }
