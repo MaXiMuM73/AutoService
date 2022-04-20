@@ -24,11 +24,11 @@ public class ReentrantLockTest {
           log.info("Unlocked");
         };
 
-        lock.lock();
-        log.info("Locked");
-
         Thread thread = new Thread(task);
         thread.start();
+        TimeUnit.SECONDS.sleep(3);
+        lock.lock();
+        log.info("Locked");
 
         log.info("Main working 3 sec");
         TimeUnit.SECONDS.sleep(3);

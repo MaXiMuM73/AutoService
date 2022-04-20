@@ -8,14 +8,22 @@ import java.util.concurrent.*;
 public class CallableTest {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         Callable<String> task = () -> {
-            log.info("working");
+            log.info("Working callable task");
             TimeUnit.SECONDS.sleep(3);
             return "Hello world";
         };
         FutureTask<String> futureTask = new FutureTask<>(task);
         new Thread(futureTask).start();
-        log.info(futureTask.get());
 
-        log.info("working");
+        while (!futureTask.isDone()) {
+            Thread.sleep(1000);
+            log.info("Task working...");
+        }
+
+        log.info("Result of callable task: {}", futureTask.get());
+        log.info("Finished");
+
+        Thread thread123 = new Thread();
+        thread123.getState();
     }
 }
