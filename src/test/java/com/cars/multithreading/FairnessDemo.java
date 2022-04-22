@@ -55,6 +55,7 @@ public class FairnessDemo {
                         // releasing the lock for long running task gives
                         //fair chances to run other threads
                         sharedObj.wait(100);
+                        Thread.sleep(100);
                     } catch (InterruptedException e) {
                         e.printStackTrace();
                     }
