@@ -16,17 +16,13 @@ public class SaveIncrementTest {
 
     public static void main(String[] args) throws InterruptedException {
         Runnable incrementTask = () -> {
-            try {
-                semaphore.acquire();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            lock.lock();
             log.info(Thread.currentThread().getName() + " working");
             for (int i = 0; i < 1000000; i++) {
                 count.incrementAndGet();
             }
             log.info(Thread.currentThread().getName() + ": {}", count);
-            semaphore.release();
+            lock.unlock();
         };
 
         for (int i = 0; i < 10; i++) {
