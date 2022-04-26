@@ -10,8 +10,8 @@ import java.util.concurrent.TimeUnit;
 @Log4j2
 public class ThreadPoolExecutorTest {
     public static void main(String[] args) {
-        int threadBound = 2;
-        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(0, threadBound, 0L,
+        int threadBound = 10;
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(0, 5, 0L,
                 TimeUnit.SECONDS, new SynchronousQueue<>());
         threadPoolExecutor.setRejectedExecutionHandler((runnable, executor) -> System.out.println("Rejected"));
 
