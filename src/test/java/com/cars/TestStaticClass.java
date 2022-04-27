@@ -4,6 +4,7 @@ public class TestStaticClass {
 
     public static void main(String[] args) {
         InnerClassStatic innerClassStatic = new InnerClassStatic();
+        var Test = "test";
     }
 
     public void test() {
