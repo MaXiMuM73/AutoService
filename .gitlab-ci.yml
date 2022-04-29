@@ -1,0 +1,9 @@
+# Этапы сборки
+stages:
+  - build
+  - test
+  - deploy
+  
+ # Глобальный набор команд, который будет выполняться перед каждой задачей 
+ before_script:
+    echo "Hello world"
