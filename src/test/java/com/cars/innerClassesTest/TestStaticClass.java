@@ -1,4 +1,4 @@
-package com.cars;
+package com.cars.innerClassesTest;
 
 public class TestStaticClass {
 
