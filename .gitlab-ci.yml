@@ -7,4 +7,3 @@ stages:
  # Глобальный набор команд, который будет выполняться перед каждой задачей 
  before_script:
     echo "Before script working"
-    echo "Hello world"
