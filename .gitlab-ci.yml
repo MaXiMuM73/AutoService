@@ -1,5 +1,5 @@
 stages:
   - test
   # Глобальный набор команд, который будет выполняться перед каждой задачей
- before_script:
+ test:
     echo "Before script working"
