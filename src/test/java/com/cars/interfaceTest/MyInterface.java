@@ -16,4 +16,6 @@ public interface MyInterface {
     }
 
     void someMethod();
+
+    void someMethodTwo();
 }

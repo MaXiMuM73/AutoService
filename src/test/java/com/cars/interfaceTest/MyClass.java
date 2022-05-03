@@ -17,6 +17,11 @@ public class MyClass extends ParentClass implements MyInterface {
 
     @Override
     public void someMethod() {
-        System.out.println("Some method");
+        log.info("Some method");
+    }
+
+    @Override
+    public void someMethodTwo() {
+        log.info("Some method two");
     }
 }
