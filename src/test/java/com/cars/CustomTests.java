@@ -1,36 +1,21 @@
 package com.cars;
 
-import com.cars.serial.Person;
+import com.cars.enums.Day;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
 public class CustomTests {
 
-    /**
-     * Тестирование Enumerated
-     */
-    @Test
-    void enumTest() {
-        log.info("Enumerated test");
-        Day monday = Day.TUESDAY;
-        System.out.println(monday.getName());
-        System.out.println(monday.getNumber());
-    }
+
 
     /**
      * Тестирование Stream API

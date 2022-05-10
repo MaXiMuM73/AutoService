@@ -1,4 +1,4 @@
-package com.cars;
+package com.cars.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
