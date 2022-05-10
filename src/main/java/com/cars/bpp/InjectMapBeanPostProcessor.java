@@ -5,6 +5,8 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;
+import org.springframework.lang.NonNull;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ReflectionUtils;
 
@@ -19,7 +21,8 @@ public class InjectMapBeanPostProcessor implements BeanPostProcessor {
     private final ApplicationContext applicationContext;
 
     @Override
-    public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
+    public Object postProcessBeforeInitialization(Object bean, @NonNull String beanName)
+            throws BeansException {
         Field[] fields = bean.getClass().getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(InjectMap.class)) {
@@ -32,12 +35,10 @@ public class InjectMapBeanPostProcessor implements BeanPostProcessor {
     }
 
     @Override
-    public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if (beanName.equals("InjectMapService")) {
-            log.info("found");
-        }
+    @Nullable
+    public Object postProcessAfterInitialization(Object bean, @NonNull String beanName)
+            throws BeansException {
         Field[] fields = bean.getClass().getDeclaredFields();
-//        log.info("before BPP working on bean {}", bean.getClass().getSimpleName());
         for (Field field : fields) {
             if (field.isAnnotationPresent(InjectMap.class)) {
                 field.setAccessible(true);

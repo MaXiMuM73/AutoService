@@ -8,7 +8,7 @@ import javax.annotation.PostConstruct;
 import java.util.Map;
 
 @Log4j2
-@Service(value = "InjectMapService")
+@Service
 @Transactional
 public class InjectMapService {
 
@@ -22,5 +22,6 @@ public class InjectMapService {
     @PostConstruct
     public void initMethod() {
         log.info("Post construct");
+        log.info(map);
     }
 }
