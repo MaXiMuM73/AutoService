@@ -28,22 +28,25 @@ public class InjectMapBeanPostProcessor implements BeanPostProcessor {
             if (field.isAnnotationPresent(InjectMap.class)) {
                 field.setAccessible(true);
                 ReflectionUtils.setField(field, bean, getMyCustomServiceMap());
-                log.info("Map injected");
+                log.info("Map injected postProcessBeforeInitialization");
             }
         }
         return BeanPostProcessor.super.postProcessBeforeInitialization(bean, beanName);
     }
 
     @Override
-    @Nullable
     public Object postProcessAfterInitialization(Object bean, @NonNull String beanName)
             throws BeansException {
+        if (beanName.equals("InjectMapService")) {
+            log.info("found");
+        }
+
         Field[] fields = bean.getClass().getDeclaredFields();
         for (Field field : fields) {
             if (field.isAnnotationPresent(InjectMap.class)) {
                 field.setAccessible(true);
                 ReflectionUtils.setField(field, bean, getMyCustomServiceMap());
-                log.info("Map injected");
+                log.info("Map injected postProcessAfterInitialization");
             }
         }
         return BeanPostProcessor.super.postProcessAfterInitialization(bean, beanName);
