@@ -64,7 +64,7 @@ public class CarController {
     @GetMapping(Urls.Car.FULL + "/test")
     public ResponseEntity<String> testMethod() {
         carService.testMethod();
-        return ResponseEntity.ok("Ok");
+        return ResponseEntity.ok("200 OK");
     }
 
     @Operation(summary = "Тестовый метод с DTO")
