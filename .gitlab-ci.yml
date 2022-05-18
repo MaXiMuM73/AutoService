@@ -1,2 +1,4 @@
 test:
+  tags:
+    - test
   script: echo 'Hello world'
