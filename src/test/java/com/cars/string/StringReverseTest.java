@@ -1,22 +1,22 @@
 package com.cars.string;
 
-import org.junit.jupiter.api.Test;
+import lombok.extern.log4j.Log4j2;
 
+import java.util.Scanner;
+
+@Log4j2
 public class StringReverseTest {
+    public static void main(String[] args) {
+        log.info("Enter text");
 
-    /**
-     * Перевернуть строку
-     */
-    @Test
-    void reverseString() {
-        String input = "Hello world, Java";
-        char[] chars = input.toCharArray();
+        Scanner scanner = new Scanner(System.in);
+        String userInput = scanner.nextLine();
 
-        StringBuilder stringBuilder = new StringBuilder();
+        char[] chars = userInput.toCharArray();
+        StringBuilder reverseString = new StringBuilder();
         for (int i = chars.length - 1; i >= 0; i--) {
-            stringBuilder.append(chars[i]);
+            reverseString.append(chars[i]);
         }
-        System.out.println(input);
-        System.out.println(stringBuilder);
+        log.info("Reverse string: {}", reverseString);
     }
 }
