@@ -82,6 +82,6 @@ public class CarController {
     @GetMapping("/testBlob")
     public ResponseEntity<String> testBlob() {
         carService.testBlob();
-        return ResponseEntity.ok("Ok");
+        return ResponseEntity.ok("Ok.");
     }
 }
