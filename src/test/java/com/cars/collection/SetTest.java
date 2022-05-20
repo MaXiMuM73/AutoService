@@ -1,10 +1,12 @@
 package com.cars.collection;
 
+import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashSet;
 import java.util.Set;
 
+@Log4j2
 public class SetTest {
 
     @Test
