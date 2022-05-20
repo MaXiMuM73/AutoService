@@ -2,8 +2,10 @@ package com.cars.service.impl;
 
 import com.cars.dto.CarCreateDto;
 import com.cars.dto.CarDto;
+import com.cars.entity.BlobEntity;
 import com.cars.entity.Car;
 import com.cars.exception.CarIdNotFoundException;
+import com.cars.repository.BlobRepository;
 import com.cars.repository.CarRepository;
 import com.cars.service.CarService;
 import com.cars.service.mapper.CarMapper;
@@ -15,6 +17,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,6 +26,7 @@ import java.util.stream.Collectors;
 public class CarServiceImpl implements CarService {
 
     private final CarRepository carRepository;
+    private final BlobRepository blobRepository;
     private final CarMapper carMapper;
 
     @Transactional
@@ -116,5 +120,12 @@ public class CarServiceImpl implements CarService {
         return carRepository
                 .findById(id)
                 .orElseThrow(() -> new CarIdNotFoundException(id));
+    }
+
+    public void testBlob() {
+        Optional<BlobEntity> blob = blobRepository.findById(1L);
+        if (blob.isPresent()) {
+            BlobEntity blobEntity = blob.get();
+        }
     }
 }

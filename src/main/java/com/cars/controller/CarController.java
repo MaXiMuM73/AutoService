@@ -78,4 +78,10 @@ public class CarController {
     public String hello(Principal principal) {
         return null;
     }
+
+    @GetMapping("/testBlob")
+    public ResponseEntity<String> testBlob() {
+        carService.testBlob();
+        return ResponseEntity.ok("Ok");
+    }
 }

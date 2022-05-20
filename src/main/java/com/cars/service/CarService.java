@@ -25,4 +25,6 @@ public interface CarService {
     List<CarDto> testMethodWithDto();
 
     List<CarDto> refreshCache();
+
+    void testBlob();
 }
