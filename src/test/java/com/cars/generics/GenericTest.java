@@ -28,4 +28,11 @@ public class GenericTest {
         list.add(123);
         System.out.println(list);
     }
+
+    @Test
+    public void boxTest() {
+        Box<String> box = new Box<>();
+        box.setBox(new ArrayList<>());
+        box.getBox().add("Test");
+    }
 }
