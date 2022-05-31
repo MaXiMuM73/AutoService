@@ -17,7 +17,7 @@
     <description>Cars</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>15</java.version>
         <postgresql.version>42.3.3</postgresql.version>
         <springdoc-openapi-ui.version>1.6.6</springdoc-openapi-ui.version>
         <lombock.version>1.18.22</lombock.version>
