@@ -27,4 +27,6 @@ public interface CarService {
     List<CarDto> refreshCache();
 
     void testBlob();
+
+    void callFuncFromDb();
 }

@@ -128,4 +128,9 @@ public class CarServiceImpl implements CarService {
             BlobEntity blobEntity = blob.get();
         }
     }
+
+    @Override
+    public void callFuncFromDb() {
+        List<Car> cars = carRepository.callFuncFromDb();
+    }
 }

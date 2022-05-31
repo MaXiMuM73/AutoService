@@ -84,4 +84,10 @@ public class CarController {
         carService.testBlob();
         return ResponseEntity.ok("Ok.");
     }
+
+    @Operation(summary = "Вызов хранимой функции БД")
+    @GetMapping("/callFunction")
+    public void callFuncFromDb() {
+        carService.callFuncFromDb();
+    }
 }
