@@ -16,6 +16,7 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -131,6 +132,6 @@ public class CarServiceImpl implements CarService {
 
     @Override
     public void callFuncFromDb() {
-        List<Car> cars = carRepository.callFuncFromDb();
+        List<ResultSet> resultSet = carRepository.callFuncFromDb();
     }
 }

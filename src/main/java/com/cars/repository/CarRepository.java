@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.jpa.repository.query.Procedure;
 
+import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,5 +18,5 @@ public interface CarRepository extends JpaRepository<Car, Long> {
 
 //    @Procedure("select_car")
     @Query(value = "select * from select_car()", nativeQuery = true)
-    List<Car> callFuncFromDb();
+    List<ResultSet> callFuncFromDb();
 }
