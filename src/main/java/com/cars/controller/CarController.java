@@ -90,4 +90,9 @@ public class CarController {
     public void callFuncFromDb() {
         carService.callFuncFromDb();
     }
+
+    @GetMapping("/testTransaction")
+    public void testTransaction() {
+        carService.testTransaction();
+    }
 }

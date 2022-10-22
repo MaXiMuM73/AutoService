@@ -61,4 +61,13 @@ public class GenericTest {
         Integer number = (Integer) integerConstructor.newInstance();
         log.info("Number: {} Class: {}", number, number.getClass().getSimpleName());
     }
+
+    @Test
+    public void customTest() {
+        List<Integer> ints = new ArrayList<Integer>();
+        ints.add(1);
+        ints.add(2);
+        List<? super Integer> nums = ints;
+        nums.add(35); // compile-time error
+    }
 }

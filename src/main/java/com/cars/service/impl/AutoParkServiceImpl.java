@@ -14,7 +14,9 @@ import com.cars.service.mapper.AutoParkMapper;
 import com.cars.service.mapper.CarMapper;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
@@ -96,7 +98,10 @@ public class AutoParkServiceImpl implements AutoParkService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.REQUIRES_NEW)
     public List<AutoParkDto> findAll() {
+        if (true) throw new RuntimeException("Test");
+
         return autoParkRepository.findAll()
                 .stream()
                 .map(autoParkMapper::toDto)

@@ -80,6 +80,134 @@
             <artifactId>reactor-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>31.1-jre</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.annotation/javax.annotation-api -->
+        <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-utils</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-api -->
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-contract-sdk-api</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-jackson -->
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-contract-sdk-jackson</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-core -->
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-contract-sdk-core</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-client -->
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-contract-sdk-client</artifactId>
+            <version>1.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.wavesenterprise/we-core -->
+        <dependency>
+            <groupId>com.wavesenterprise</groupId>
+            <artifactId>we-core</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+
+
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-transaction-protobuf</artifactId>-->
+<!--            <version>1.8.5</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-node-client-domain &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-node-client-domain</artifactId>-->
+<!--            <version>0.2.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-api &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-contract-sdk-api</artifactId>-->
+<!--            <version>1.1.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-node-client-grpc-java &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-node-client-grpc-java</artifactId>-->
+<!--            <version>0.2.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-utils &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-utils</artifactId>-->
+<!--            <version>1.11.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-node-client-grpc-mapper &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-node-client-grpc-mapper</artifactId>-->
+<!--            <version>0.2.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-jackson &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-contract-sdk-jackson</artifactId>-->
+<!--            <version>1.1.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-node-client-coroutines-client &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-node-client-coroutines-client</artifactId>-->
+<!--            <version>0.2.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-models &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-models</artifactId>-->
+<!--            <version>1.11.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-contract-sdk-core &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-contract-sdk-core</artifactId>-->
+<!--            <version>1.1.0</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-grpc-protobuf &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-grpc-protobuf</artifactId>-->
+<!--            <version>1.6-1.11.0-RC3</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-transaction-protobuf &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-transaction-protobuf</artifactId>-->
+<!--            <version>1.11.0-RC2</version>-->
+<!--        </dependency>-->
+<!--        &lt;!&ndash; https://mvnrepository.com/artifact/com.wavesenterprise/we-crypto &ndash;&gt;-->
+<!--        <dependency>-->
+<!--            <groupId>com.wavesenterprise</groupId>-->
+<!--            <artifactId>we-crypto</artifactId>-->
+<!--            <version>1.11.0</version>-->
+<!--        </dependency>-->
+
+
     </dependencies>
 
     <build>

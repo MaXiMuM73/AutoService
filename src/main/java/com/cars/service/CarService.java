@@ -29,4 +29,6 @@ public interface CarService {
     void testBlob();
 
     void callFuncFromDb();
+
+    void testTransaction();
 }
