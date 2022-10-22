@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
 import java.util.List;
 
-@Tag(name = "Car controller", description = "Car management / Управление автомобилями")
+@Tag(name = "Car controller", description = "Car management / Управление автомобилями / Test commit")
 @RestController
 @RequestMapping()
 public class CarController {
